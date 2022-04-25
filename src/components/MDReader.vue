@@ -1,5 +1,5 @@
 <template>
-    <h1>Reader</h1>
+    <h1>Preview here</h1>
 </template>
 
 <script lang="ts">
