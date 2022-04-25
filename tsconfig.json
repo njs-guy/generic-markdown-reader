@@ -11,6 +11,7 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": true,
+    "outDir": "./src/assets/js",
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
@@ -26,7 +27,8 @@
       "dom",
       "dom.iterable",
       "scripthost"
-    ]
+    ],
+    
   },
   "include": [
     "src/**/*.ts",
