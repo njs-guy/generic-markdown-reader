@@ -1,14 +1,21 @@
 <template>
     <header class="header">
         <h1 class="header-item">Generic Markdown Reader</h1>
+        <div class="toolbar">
+            <StdButton text='Open' />
+        </div>
     </header>
 </template>
 
 <script lang="ts">
 import Vue, { defineComponent } from 'vue';
+import StdButton from "./Button.vue";
 
 export default defineComponent({
     name: 'ReaderHeader',
+    components: {
+        StdButton,
+    },
 })
 </script>
 
@@ -23,5 +30,10 @@ export default defineComponent({
     .header-item {
         margin: 0 auto;
         vertical-align: middle;
+    }
+
+    .toolbar {
+        vertical-align: middle;
+        float: right;
     }
 </style>
