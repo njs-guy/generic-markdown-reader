@@ -1,5 +1,5 @@
 <template>
-    <h1>Preview here</h1>
+    <h1>{{docText}}</h1>
 </template>
 
 <script lang="ts">
@@ -7,6 +7,9 @@ import Vue, { defineComponent } from 'vue';
 
 export default defineComponent({
     name: 'MDReader',
+    props: {
+        docText: String
+    },
 })
 </script>
 
