@@ -1,13 +1,15 @@
 <template>
   <Header />
-  <MDReader :docText=dT[0] />
+  <MDReader :docText=this.dT />
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
+import { readMD } from './assets/ts/readFile';
+
 import MDReader from '@/components/MDReader.vue';
 import Header from '@/components/Header.vue';
-import { readMD } from './assets/ts/readFile'
+
 
 @Options({
   name: 'App',
@@ -18,11 +20,15 @@ import { readMD } from './assets/ts/readFile'
     methods: {
         async loadFile() {
           const md = await readMD();
-          this.dT = md;
+          this.dT = md.join();
         },
+        displayDT() {
+          this.output = String(this.dT.join());
+        }
     },
-    mounted: function() {
+    mounted: function() { // On load
         this.loadFile();
+        this.displayDT();
     },
     data() {
       return {

@@ -1,5 +1,5 @@
 <template>
-    <h1>{{docText}}</h1>
+    {{docText}}
 </template>
 
 <script lang="ts">
@@ -8,7 +8,7 @@ import Vue, { defineComponent } from 'vue';
 export default defineComponent({
     name: 'MDReader',
     props: {
-        docText: String
+        docText: String,
     },
 })
 </script>

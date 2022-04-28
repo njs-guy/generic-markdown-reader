@@ -11,7 +11,7 @@ export function readMD() {
     })
     .catch(err => console.log(err));
 
-    return fileFetch; // This returns a promise, so you need to use await to get the actual result
+    return fileFetch as Promise<Array<string>>; // This returns a promise, so you need to use await to get the actual result
 }
 
 // Converts the input to HTML. For now, just splits it into an array.
