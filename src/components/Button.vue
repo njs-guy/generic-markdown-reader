@@ -1,5 +1,5 @@
 <template>
-    <button @click="onClick()" class="btn btn-light">
+    <button @click="onClick()" class="btn btn-light btn-sm">
         {{text}}
     </button>
 </template>

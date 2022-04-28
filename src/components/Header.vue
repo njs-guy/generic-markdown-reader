@@ -1,8 +1,8 @@
 <template>
-    <header class="header">
-        <h1 class="header-item">Generic Markdown Reader</h1>
+    <header class="navbar navbar-dark bg-dark container-fluid">
+        <a href="https://github.com/njshockey/generic-markdown-reader" target="_blank" class="navbar-brand">Generic Markdown Reader</a>
         <div class="toolbar">
-            <StdButton text='Open' />
+            <StdButton class="nav-item" text='Open' />
         </div>
     </header>
 </template>
@@ -36,5 +36,11 @@ export default defineComponent({
     .toolbar {
         vertical-align: middle;
         float: right;
+    }
+
+    .navbar {
+        color: #eee;
+        margin-bottom: 5px;
+        /* height: 20px; */
     }
 </style>
