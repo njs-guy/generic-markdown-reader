@@ -1,5 +1,9 @@
 <template>
+<div class="card text-start position-relative">
+    <div class="md-reader card-body">
     {{docText}}
+    </div>
+</div>
 </template>
 
 <script lang="ts">
@@ -13,8 +17,11 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-    body {
+<style>
+    .md-reader {
         color: black;
+        /* margin: 10px; */
+        /* border-radius: 10px;
+        outline: 1px solid black; */
     }
 </style>
