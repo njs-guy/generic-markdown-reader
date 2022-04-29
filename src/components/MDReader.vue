@@ -16,12 +16,3 @@ export default defineComponent({
     },
 })
 </script>
-
-<style>
-    .md-reader {
-        color: black;
-        /* margin: 10px; */
-        /* border-radius: 10px;
-        outline: 1px solid black; */
-    }
-</style>

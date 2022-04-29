@@ -18,29 +18,3 @@ export default defineComponent({
     },
 })
 </script>
-
-<style scoped>
-    .header {
-        background-color: #202020;
-        color: #CECECE;
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 10px;
-    }
-
-    .header-item {
-        margin: 0 auto;
-        vertical-align: middle;
-    }
-
-    .toolbar {
-        vertical-align: middle;
-        float: right;
-    }
-
-    .navbar {
-        color: #eee;
-        margin-bottom: 5px;
-        /* height: 20px; */
-    }
-</style>

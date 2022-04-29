@@ -20,9 +20,3 @@ export default defineComponent({
     }
 })
 </script>
-
-<style>
-    btn {
-        margin-right: 5px;
-    }
-</style>
