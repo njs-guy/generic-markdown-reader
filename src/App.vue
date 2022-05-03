@@ -58,6 +58,13 @@ body {
   background-color: #eeeeee;
 }
 
+/* Markdown stylings */
+pre, p > code {
+    border-radius: 3px;
+    padding: 5px;
+    background-color: #e0e0e0;
+}
+
 .header {
   background-color: #202020;
   color: #CECECE;
