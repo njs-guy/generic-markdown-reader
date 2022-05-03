@@ -35,12 +35,20 @@ import Header from '@/components/Header.vue';
         },
         addClasses() {
           let tableList = document.getElementsByTagName("table");
-          if (tableList.length > 0) {
+          let blockquoteList = document.getElementsByTagName("blockquote");
+
+          if(tableList.length > 0) {
             for (let table of tableList) {
               table.classList.add("table");
               table.classList.add("table-bordered");
               table.classList.add("table-striped");
               table.classList.add("table-responsive");
+            }
+          }
+
+          if(blockquoteList.length > 0) {
+            for(let bq of blockquoteList) {
+              bq.classList.add("blockquote");
             }
           }
         }
@@ -72,6 +80,20 @@ pre, p > code {
     background-color: #e0e0e0;
 }
 
+.md-reader > p > a {
+  text-decoration: none;
+}
+
+.md-reader > p > a:hover {
+  text-decoration: underline;
+}
+
+.blockquote {
+  padding-left: 5px;
+  border-left: 3px solid black;
+}
+
+/* Other stylings */
 .header {
   background-color: #202020;
   color: #CECECE;
@@ -97,14 +119,6 @@ pre, p > code {
 
 .md-reader {
   color: black;
-}
-
-.md-reader > p > a {
-  text-decoration: none;
-}
-
-.md-reader > p > a:hover {
-  text-decoration: underline;
 }
 
 .main-panel {

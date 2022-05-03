@@ -1,10 +1,8 @@
-# Test
-
 ## Basic Syntax
 
-These are the elements outlined in John Gruber’s original design document. All Markdown applications support these elements.
+*These* are the elements outlined in **John Gruber’s** original design document. All ***Markdown*** applications support these elements.
 
-### Heading
+### Headings
 
 # H1
 ## H2
@@ -12,31 +10,32 @@ These are the elements outlined in John Gruber’s original design document. All
 
 ### Bold
 
-**bold text**
+**Bold and brash**
 
 ### Italic
 
-*italicized text*
+*More like belongs in the trash*
 
 ### Blockquote
 
-> blockquote
+> "Let's show 'em a thing or three!"
 
 ### Ordered List
 
-1. First item
-2. Second item
-3. Third item
+1. Create a free and open source Markdown reader
+2. Have everyone be impressed by your free software
+3. ???
+4. Profit
 
 ### Unordered List
 
-- First item
-- Second item
-- Third item
+- Pet cats
+- Pet dogs
+- Pet goldfish
 
 ### Code
 
-`code`
+`let x = 8`
 
 ### Horizontal Rule
 
@@ -44,7 +43,7 @@ These are the elements outlined in John Gruber’s original design document. All
 
 ### Link
 
-[Markdown Guide](https://www.markdownguide.org)
+[Donate to Doctor's Without Borders](https://www.doctorswithoutborders.org/)
 
 ### Image
 
@@ -64,10 +63,8 @@ These elements extend the basic syntax by adding additional features. Not all Ma
 ### Fenced Code Block
 
 ```
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
+function thisWorks() {
+  console.log("wow");
 }
 ```
 
@@ -92,9 +89,9 @@ term
 
 ### Task List
 
-- [x] Write the press release
-- [ ] Update the website
-- [ ] Contact the media
+- [x] Take a shower
+- [ ] Learn something new
+- [ ] Actually finish something for once
 
 ### Emoji
 
@@ -114,4 +111,4 @@ H~2~O
 
 X^2^
 
-Taken from [Markdown Guide.](https://www.markdownguide.org/cheat-sheet/)
+Derived from [Markdown Guide.](https://www.markdownguide.org/cheat-sheet/)
