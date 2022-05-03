@@ -32,15 +32,16 @@ import Header from '@/components/Header.vue';
     methods: {
         async loadFile() {
           const md = await readMD();
-          this.dT = md.join();
+          this.dT = md.join("");
+          console.log(this.dT);
         },
         displayDT() {
-          console.log(this.dT);
+          console.log("displayDT");
         }
     },
     mounted: function() { // On load
         this.loadFile();
-        this.displayDT();
+        // this.displayDT();
     },
     data() {
       return {

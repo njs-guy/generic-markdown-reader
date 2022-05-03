@@ -23,11 +23,7 @@ function convertOutput(text:string) {
     const input = text.split(/\r\n|\n/);
     let output: string[] = [];
     input.forEach(i => {
-        if(i === "") {
-            // output.push("<br>");
-        } else {
-            output.push(marked.parse(i));
-        }
+        output.push(marked.parse(i));
     });
 
     // Sanitize output. Likely with DOMpurify
