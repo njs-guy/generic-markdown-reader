@@ -10,7 +10,6 @@
       </div>
     </div>
   </div>
-  
 </template>
 
 <script lang="ts">
@@ -34,13 +33,18 @@ import Header from '@/components/Header.vue';
           const md = await readMD();
           this.dT = md;
         },
-        displayDT() {
-          console.log("displayDT");
+        addClasses() {
+          let tableList = document.getElementsByTagName("table");
+          if (tableList.length > 0) {
+            for (let table of tableList) {
+              table.classList.add("table");
+            }
+          }
         }
     },
-    mounted: function() { // On load
-        this.loadFile();
-        // this.displayDT();
+    mounted: async function() { // On load
+        await this.loadFile();
+        this.addClasses();
     },
     data() {
       return {
