@@ -38,6 +38,9 @@ import Header from '@/components/Header.vue';
           if (tableList.length > 0) {
             for (let table of tableList) {
               table.classList.add("table");
+              table.classList.add("table-bordered");
+              table.classList.add("table-striped");
+              table.classList.add("table-responsive");
             }
           }
         }
@@ -64,7 +67,7 @@ body {
 
 /* Markdown stylings */
 pre, p > code {
-    border-radius: 3px;
+    border-radius: 5px;
     padding: 5px;
     background-color: #e0e0e0;
 }
