@@ -1,6 +1,10 @@
 // Reads an input text file, and then uses mdParse.ts and mdDisplay.ts to return converted HTML.
 // For now, just reads and returns text.
 
+/* eslint-disable */
+const { marked } = require('marked');
+/* eslint-disable */
+
 export function readMD() {
     const filePath = "test.txt";
 
@@ -17,5 +21,8 @@ export function readMD() {
 // Converts the input to HTML. For now, just splits it into an array.
 function convertOutput(text:string) {
     const output = text.split(/\r\n|\n/);
-    return output;
+    const output2 = [marked.parse('# Wow'), "", marked.parse("## What a heading")];
+
+    // Sanitize output. Likely with DOMpurify
+    return output2;
 }
