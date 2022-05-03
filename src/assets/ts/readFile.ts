@@ -2,8 +2,13 @@
 // For now, just reads and returns text.
 
 /* eslint-disable */
-const { marked } = require('marked');
+const md  = require('markdown-it')({
+    linkify: true,
+    typographer: true,
+    quotes: '“”‘’'
+});
 /* eslint-disable */
+
 
 export function readMD() {
     const filePath = "cheatsheet.md";
@@ -20,11 +25,7 @@ export function readMD() {
 
 // Converts the input to HTML. For now, just splits it into an array.
 function convertOutput(text:string) {
-    const input = text.split(/\r\n|\n/);
-    let output: string[] = [];
-    input.forEach(i => {
-        output.push(marked.parse(i));
-    });
+    const output = md.render(text);
 
     // Sanitize output. Likely with DOMpurify
     return output;

@@ -16,3 +16,8 @@ export default defineComponent({
     },
 })
 </script>
+
+<style>
+/* Scoped so that it only effects the markdown preview */
+
+</style>
