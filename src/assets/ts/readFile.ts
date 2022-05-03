@@ -6,7 +6,7 @@ const { marked } = require('marked');
 /* eslint-disable */
 
 export function readMD() {
-    const filePath = "test.txt";
+    const filePath = "cheatsheet.md";
 
     const fileFetch = fetch(filePath)
     .then((res) => res.text())
