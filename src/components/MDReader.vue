@@ -1,7 +1,7 @@
 <template>
 <div class="card text-start position-relative">
-    <div class="md-reader card-body">
-    {{docText}}
+    <div class="md-reader card-body" v-html=docText>
+    
     </div>
 </div>
 </template>

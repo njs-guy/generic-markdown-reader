@@ -20,9 +20,16 @@ export function readMD() {
 
 // Converts the input to HTML. For now, just splits it into an array.
 function convertOutput(text:string) {
-    const output = text.split(/\r\n|\n/);
-    const output2 = [marked.parse('# Wow'), "", marked.parse("## What a heading")];
+    const input = text.split(/\r\n|\n/);
+    let output: string[] = [];
+    input.forEach(i => {
+        if(i === "") {
+            // output.push("<br>");
+        } else {
+            output.push(marked.parse(i));
+        }
+    });
 
     // Sanitize output. Likely with DOMpurify
-    return output2;
+    return output;
 }
