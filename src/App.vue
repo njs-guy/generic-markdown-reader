@@ -99,6 +99,14 @@ pre, p > code {
   color: black;
 }
 
+.md-reader > p > a {
+  text-decoration: none;
+}
+
+.md-reader > p > a:hover {
+  text-decoration: underline;
+}
+
 .main-panel {
   color: black;
 }
