@@ -1,5 +1,4 @@
-// Reads an input text file, and then uses mdParse.ts and mdDisplay.ts to return converted HTML.
-// For now, just reads and returns text.
+// Reads an input text file, and then uses markdown-it to parse markdown
 
 /* eslint-disable */
 const md  = require('markdown-it')({
@@ -9,8 +8,7 @@ const md  = require('markdown-it')({
 });
 /* eslint-disable */
 
-
-export function readMD() {
+export function openMDFile(/* filepath here */) {
     const filePath = "cheatsheet.md";
 
     const fileFetch = fetch(filePath)
@@ -23,8 +21,8 @@ export function readMD() {
     return fileFetch as Promise<Array<string>>; // This returns a promise, so you need to use await to get the actual result
 }
 
-// Converts the input to HTML. For now, just splits it into an array.
-function convertOutput(text:string) {
+// Converts the input to HTML.
+export function convertOutput(text:string) {
     const output = md.render(text);
 
     // Sanitize output. Likely with DOMpurify

@@ -3,7 +3,7 @@
   <div class="main-panel container-fluid">
       <div class="row align-items-middle gx-2">
       <div class="col ">
-        <MDEditor />
+        <MDEditor @update:editText="updatePreview" />
       </div>
       <div class="col">
         <MDReader :docText=this.dT />
@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import { readMD } from './assets/ts/readFile';
+import { openMDFile, convertOutput } from './assets/ts/readFile';
 
 import MDReader from '@/components/MDReader.vue';
 import MDEditor from '@/components/MDEditor.vue';
@@ -28,9 +28,18 @@ import Header from '@/components/Header.vue';
       MDReader,
       MDEditor,
     },
+    data() {
+      return {
+        dT: '',
+      }
+    },
     methods: {
+        updatePreview(text:string) {
+          //this.eT = text;
+          this.dT = convertOutput(text);
+        },
         async loadFile() {
-          const md = await readMD();
+          const md = await openMDFile();
           this.dT = md;
         },
         addClasses() {
@@ -51,17 +60,12 @@ import Header from '@/components/Header.vue';
               bq.classList.add("blockquote");
             }
           }
-        }
+        },
     },
     mounted: async function() { // On load
-        await this.loadFile();
-        this.addClasses();
+        // await this.loadFile();
+        // this.addClasses();
     },
-    data() {
-      return {
-        dT: [],
-      }
-    }
 })
 export default class App extends Vue {}
 </script>
