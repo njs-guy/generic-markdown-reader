@@ -89,8 +89,9 @@ pre, p > code {
 }
 
 .blockquote {
-  padding-left: 5px;
-  border-left: 3px solid black;
+  padding-left: 10px;
+  border-left: 2px solid #202020;
+  background-color: #e0e0e0;
 }
 
 /* Other stylings */
