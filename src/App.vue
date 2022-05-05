@@ -71,10 +71,19 @@ export default class App extends Vue {}
 </script>
 
 <style>
+/* Top level */
 body {
   padding: 0;
   margin: 0;
   background-color: #eeeeee;
+}
+
+#app {
+  font-family: 'Roboto', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: black;
 }
 
 /* Markdown stylings */
@@ -122,8 +131,17 @@ pre, p > code {
   margin-bottom: 5px;
 }
 
+.card, .md-editor {
+  width: 47vw;
+  height: 92vh;
+}
+
 .md-reader {
-  color: black;
+  overflow-y: scroll;
+}
+
+.md-editor {
+  resize: none;
 }
 
 .main-panel {
@@ -137,17 +155,10 @@ pre, p > code {
 .form-control {
   border: 1px solid lightgray;
 }
+
 .form-control:focus {
   border: 1px solid lightgray;
   box-shadow: none;
   outline: 0 none;
-}
-
-#app {
-  font-family: 'Roboto', Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: black;
 }
 </style>
