@@ -48,9 +48,11 @@ import Header from '@/components/Header.vue';
         addClasses() {
           let tableList = document.getElementsByTagName("table");
           let blockquoteList = document.getElementsByTagName("blockquote");
+          let linkList = document.getElementsByTagName("a");
 
-          console.log("Tables: " + String(tableList.length));
-          console.log("Block quotes: " + String(blockquoteList.length));
+          // console.log("Tables: " + String(tableList.length));
+          // console.log("Block quotes: " + String(blockquoteList.length));
+          // console.log("Links: " + String(linkList.length));
 
           if(tableList.length > 0) {
             for (let table of tableList) {
@@ -64,6 +66,12 @@ import Header from '@/components/Header.vue';
           if(blockquoteList.length > 0) {
             for(let bq of blockquoteList) {
               bq.classList.add("blockquote");
+            }
+          }
+
+          if(linkList.length > 0) {
+            for(let link of linkList) {
+              link.classList.add("link-primary");
             }
           }
         },
@@ -105,11 +113,11 @@ pre, p > code {
     background-color: #e0e0e0;
 }
 
-.md-reader > p > a {
+.link-primary {
   text-decoration: none;
 }
 
-.md-reader > p > a:hover {
+.link-primary:hover {
   text-decoration: underline;
 }
 
