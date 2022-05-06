@@ -1,13 +1,13 @@
 <template>
   <Header />
   <div class="main-panel container-fluid">
-      <div class="row align-items-middle gx-2">
-      <div class="col ">
-        <MDEditor @update:editText="updatePreview" />
-      </div>
-      <div class="col">
-        <MDReader :docText=this.dT />
-      </div>
+      <div class="row align-items-middle gx-3">
+        <div class="col flex-column">
+          <MDEditor @update:editText="updatePreview" />
+        </div>
+        <div class="col flex-column">
+          <MDReader :docText=this.dT />
+        </div>
     </div>
   </div>
 </template>
@@ -34,9 +34,8 @@ import Header from '@/components/Header.vue';
       }
     },
     methods: {
-        updatePreview(text:string) {
-          //this.eT = text;
-          this.dT = convertOutput(text);
+        async updatePreview(text:string) {
+          this.dT = await convertOutput(text);
         },
         async loadFile() {
           const md = await openMDFile();
@@ -45,6 +44,9 @@ import Header from '@/components/Header.vue';
         addClasses() {
           let tableList = document.getElementsByTagName("table");
           let blockquoteList = document.getElementsByTagName("blockquote");
+
+          console.log("Tables: " + String(tableList.length));
+          console.log("Block quotes: " + String(blockquoteList.length));
 
           if(tableList.length > 0) {
             for (let table of tableList) {
@@ -62,10 +64,14 @@ import Header from '@/components/Header.vue';
           }
         },
     },
-    mounted: async function() { // On load
-        // await this.loadFile();
-        // this.addClasses();
+    mounted: function() { // On load
+
     },
+    watch: {
+      dT() {
+        this.addClasses();
+      }
+    }
 })
 export default class App extends Vue {}
 </script>
@@ -132,8 +138,7 @@ pre, p > code {
 }
 
 .card, .md-editor {
-  width: 47vw;
-  height: 92vh;
+  height: clamp(60vh, 80vh, 90vh);
 }
 
 .md-reader {
