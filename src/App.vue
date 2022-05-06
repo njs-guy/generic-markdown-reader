@@ -3,7 +3,7 @@
   <div class="main-panel container-fluid">
       <div class="row align-items-middle gx-3">
         <div class="col flex-column">
-          <MDEditor @update:editText="updatePreview" />
+          <MDEditor @update:editText="onInputUpdate" />
         </div>
         <div class="col flex-column">
           <MDReader :docText=this.dT />
@@ -34,8 +34,12 @@ import Header from '@/components/Header.vue';
       }
     },
     methods: {
-        async updatePreview(text:string) {
-          this.dT = await convertOutput(text);
+        onInputUpdate(t:string) {
+          this.updatePreview(t, this.addClasses);
+        },
+        updatePreview(text:string, callback:CallableFunction) {
+          this.dT = convertOutput(text);
+          // callback(); //addClasses
         },
         async loadFile() {
           const md = await openMDFile();
@@ -69,7 +73,9 @@ import Header from '@/components/Header.vue';
     },
     watch: {
       dT() {
-        this.addClasses();
+        // await this.addClasses();
+        setTimeout(this.addClasses, 500);
+        // this.addClasses();
       }
     }
 })
