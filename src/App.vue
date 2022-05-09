@@ -1,5 +1,8 @@
 <template>
-  <Header />
+  <!-- Toolbar / Header and button events -->
+  <Header
+  @btn-open-click="onOpen()"
+  />
   <div class="main-panel container-fluid">
       <div class="row align-items-middle gx-3">
         <div class="col flex-column">
@@ -74,6 +77,9 @@ import Header from '@/components/Header.vue';
               link.classList.add("link-primary");
             }
           }
+        },
+        onOpen() {
+          console.log("Open file...");
         },
     },
     mounted: function() { // On load
