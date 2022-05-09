@@ -77,9 +77,14 @@ import Header from '@/components/Header.vue';
               link.classList.add("link-primary");
             }
           }
-        },
+        }, // End addClasses()
         onOpen() {
           console.log("Open file...");
+          let input = openMDFile();
+          if (input != undefined || input != null) {
+            console.log(input);
+            // console.log(convertOutput(input));
+          }
         },
     },
     mounted: function() { // On load
