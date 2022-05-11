@@ -1,11 +1,9 @@
 <template>
-    <input type="file" ref="openButton" class="btn btn-light btn-sm" id="openButton" accept=".txt, .md" style="display: none" >
-    <!-- <button @click="$refs.openButton.click()" class="btn btn-light btn-sm">
-        Open
-    </button> -->
+    <input type="file" ref="btnOpen" id="btnOpen" accept=".txt, .md" style="display: none" 
+    @change="openText()" >
     <StdButton text="Open" 
-    @click="$refs.openButton.click()" 
-    @btn-open-click="$emit('btn-open-click')"/>
+    @click="$refs.btnOpen.click()" />
+    <!-- @btn-open-click="$emit('btn-open-click')" -->
 </template>
 
 <script lang="ts">
@@ -21,8 +19,15 @@ export default defineComponent({
         StdButton,
     },
     methods: {
-        onClick() {
-            this.$emit('btn-open-click');
+        openText() {
+            const file = this.$refs.btnOpen.files[0]; // Despite this being an error, this line works perfectly. (shrug)
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                let text = String(e.target?.result);
+                this.$emit("loadedText", text);
+            };
+            reader.readAsText(file);
+            
         }
     },
 })

@@ -1,5 +1,5 @@
 <template>
-    <textarea :value="editText" @input="$emit('update:editText', $event.target.value)" class="md-editor form-control" placeholder="Mark is down" autofocus=true />
+    <textarea :value="editText" @input="$emit('update:editText', $event.target.value)" class="md-editor form-control" ref="mdEditor" placeholder="Mark is down" autofocus=true />
 </template>
 
 <script lang="ts">

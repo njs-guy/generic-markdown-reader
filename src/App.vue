@@ -2,11 +2,12 @@
   <!-- Toolbar / Header and button events -->
   <Header
   @btn-open-click="onOpen()"
+  @loadedText="onLoadedText($event)"
   />
   <div class="main-panel container-fluid">
       <div class="row align-items-middle gx-3">
         <div class="col flex-column">
-          <MDEditor @update:editText="onInputUpdate" />
+          <MDEditor :editText="eT" @update:editText="onInputUpdate" />
         </div>
         <div class="col flex-column">
           <MDReader :docText=this.dT />
@@ -34,6 +35,7 @@ import Header from '@/components/Header.vue';
     data() {
       return {
         dT: '',
+        eT: '',
       }
     },
     methods: {
@@ -78,13 +80,8 @@ import Header from '@/components/Header.vue';
             }
           }
         }, // End addClasses()
-        onOpen() {
-          console.log("Open file...");
-          let input = openMDFile();
-          if (input != undefined || input != null) {
-            console.log(input);
-            // console.log(convertOutput(input));
-          }
+        onLoadedText(ev:string) {
+          this.eT = ev; // Change eT to text from event
         },
     },
     mounted: function() { // On load

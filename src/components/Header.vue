@@ -2,8 +2,7 @@
     <header class="navbar navbar-dark bg-dark container-fluid">
         <a href="https://github.com/njshockey/generic-markdown-reader" target="_blank" class="navbar-brand">Generic Markdown Reader</a>
         <div class="toolbar">
-            <!-- <StdButton class="nav-item" text='Open' @btn-open-click="$emit('btn-open-click')" /> -->
-            <OpenButton @btn-open-click="$emit('btn-open-click')" />
+            <OpenButton @loadedText="$emit('loadedText', $event)"/>
         </div>
     </header>
 </template>
