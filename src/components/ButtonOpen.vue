@@ -19,6 +19,8 @@ export default defineComponent({
         StdButton,
     },
     methods: {
+        // With FileReader, take the opened file and read the text as a string. 
+        // After it's been loaded, emit "loadedText" along with the text string.
         openText() {
             const file = this.$refs.btnOpen.files[0]; // Despite this being an error, this line works perfectly. (shrug)
             const reader = new FileReader();

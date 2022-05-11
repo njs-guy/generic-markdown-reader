@@ -14,6 +14,7 @@ export default defineComponent({
         icon: String
     },
     methods: {
+        // Emit btn-(this.text)-click
         onClick() {
             this.$emit('btn-' + this.text + '-click'); // ex: 'btn-open-click'
         }

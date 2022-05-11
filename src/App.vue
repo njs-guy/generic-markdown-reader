@@ -39,17 +39,21 @@ import Header from '@/components/Header.vue';
       }
     },
     methods: {
+        // Updates preview with classes when this.dT is changed
         onInputUpdate(t:string) {
           this.updatePreview(t, this.addClasses);
         },
+        // Simply converts the output again, and then adds classes for the CSS
         updatePreview(text:string, callback:CallableFunction) {
           this.dT = convertOutput(text);
           // callback(); //addClasses
         },
+        // Currently uncalled but I might still want this later. Loads a cheatsheet.md from the public dir
         async loadFile() {
           const md = await openMDFile();
           this.dT = md;
         },
+        // Adds classes to certain markdown elements for CSS
         addClasses() {
           let tableList = document.getElementsByTagName("table");
           let blockquoteList = document.getElementsByTagName("blockquote");
@@ -59,6 +63,7 @@ import Header from '@/components/Header.vue';
           // console.log("Block quotes: " + String(blockquoteList.length));
           // console.log("Links: " + String(linkList.length));
 
+          // Tables
           if(tableList.length > 0) {
             for (let table of tableList) {
               table.classList.add("table");
@@ -68,18 +73,22 @@ import Header from '@/components/Header.vue';
             }
           }
 
+          // Block quotes
           if(blockquoteList.length > 0) {
             for(let bq of blockquoteList) {
               bq.classList.add("blockquote");
             }
           }
 
+          // Links
           if(linkList.length > 0) {
             for(let link of linkList) {
               link.classList.add("link-primary");
             }
           }
         }, // End addClasses()
+
+        // When a txt or md file is opened, set this.eT to the opened text.
         onLoadedText(ev:string) {
           this.eT = ev; // Change eT to text from event
         },

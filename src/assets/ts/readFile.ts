@@ -8,32 +8,18 @@ const md  = require('markdown-it')({
 });
 /* eslint-disable */
 
-export function openMDFile(/* filepath here */) {
-    // const filePath = "cheatsheet.md";
+// Opens cheatsheet.md from the public dir
+export function openMDFile() {
+    const filePath = "cheatsheet.md";
 
-    // const fileFetch = fetch(filePath)
-    // .then((res) => res.text())
-    // .then((data) => {
-    //     return convertOutput(data);
-    // })
-    // .catch(err => console.log(err));
+    const fileFetch = fetch(filePath)
+    .then((res) => res.text())
+    .then((data) => {
+        return convertOutput(data);
+    })
+    .catch(err => console.log(err));
 
-    // return fileFetch as Promise<Array<string>>; // This returns a promise, so you need to use await to get the actual result
-
-    const reader = new FileReader();
-    const file = document.querySelector('input[type=file]');
-
-    if(file) {
-        let output = String(reader.result);
-        return output;
-    } else {
-        alert("Please select a valid file.");
-        return;
-    }
-
-    // reader.addEventListener("load", () => {
-    //     output = reader.result;
-    // }, false);
+    return fileFetch as Promise<Array<string>>; // This returns a promise, so you need to use await to get the actual result
 }
 
 // Converts the input to HTML.
