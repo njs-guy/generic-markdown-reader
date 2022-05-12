@@ -145,6 +145,10 @@ pre, p > code {
 }
 
 /* Other stylings */
+.btn {
+  margin-left: 8px;
+}
+
 .header {
   background-color: #202020;
   color: #CECECE;
