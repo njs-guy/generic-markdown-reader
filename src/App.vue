@@ -3,11 +3,12 @@
   <Header
   @btn-open-click="onOpen()"
   @loadedText="onLoadedText($event)"
+  @download-clicked="downloadFile($event)"
   />
   <div class="main-panel container-fluid">
       <div class="row align-items-middle gx-3">
         <div class="col flex-column">
-          <MDEditor :editText="eT" @update:editText="onInputUpdate" />
+          <MDEditor :editText=this.eT @update:editText="onInputUpdate" />
         </div>
         <div class="col flex-column">
           <MDReader :docText=this.dT />
@@ -18,7 +19,7 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import { openMDFile, convertOutput } from './assets/ts/readFile';
+import { openMDFile, convertOutput, saveFile } from './assets/ts/readFile';
 
 import MDReader from '@/components/MDReader.vue';
 import MDEditor from '@/components/MDEditor.vue';
@@ -41,12 +42,21 @@ import Header from '@/components/Header.vue';
     methods: {
         // Updates preview with classes when this.dT is changed
         onInputUpdate(t:string) {
+          this.eT = t;
           this.updatePreview(t, this.addClasses);
         },
         // Simply converts the output again, and then adds classes for the CSS
         updatePreview(text:string, callback:CallableFunction) {
           this.dT = convertOutput(text);
           // callback(); //addClasses
+        },
+        // When a txt or md file is opened, set this.eT to the opened text.
+        onLoadedText(ev:string) {
+          this.eT = ev; // Change eT to text from event
+        },
+        // Downloads what is currently in the edit panel as the file type passed into it
+        downloadFile(filetype: string) {
+          saveFile(this.eT, "markdown", filetype);
         },
         // Currently uncalled but I might still want this later. Loads a cheatsheet.md from the public dir
         async loadFile() {
@@ -87,11 +97,6 @@ import Header from '@/components/Header.vue';
             }
           }
         }, // End addClasses()
-
-        // When a txt or md file is opened, set this.eT to the opened text.
-        onLoadedText(ev:string) {
-          this.eT = ev; // Change eT to text from event
-        },
     },
     mounted: function() { // On load
 
@@ -101,7 +106,8 @@ import Header from '@/components/Header.vue';
         // await this.addClasses();
         setTimeout(this.addClasses, 500);
         // this.addClasses();
-      }
+        
+      },
     }
 })
 export default class App extends Vue {}

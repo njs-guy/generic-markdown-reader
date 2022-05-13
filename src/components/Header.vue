@@ -4,7 +4,7 @@
             <a href="https://github.com/njshockey/generic-markdown-reader" target="_blank" class="navbar-brand">Generic Markdown Reader</a>
             <div class="toolbar d-flex justify-content-end">
                 <OpenButton @loadedText="$emit('loadedText', $event)"/>
-                <DownloadButton />
+                <DownloadButton @download-clicked="$emit('download-clicked', $event)" />
             </div>
         </div>
     </header>

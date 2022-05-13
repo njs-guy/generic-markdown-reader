@@ -4,18 +4,22 @@
             Download
         </button>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="download-dropdown">
-            <li><button class="dropdown-item" type="button">As Markdown</button></li>
-            <li><button class="dropdown-item" type="button">As Text</button></li>
-            <!-- <li><button class="dropdown-item" type="button">As HTML</button></li> -->
+            <li><button class="dropdown-item" type="button" @click="onDownloadClick('md')">As Markdown</button></li>
+            <li><button class="dropdown-item" type="button" @click="onDownloadClick('txt')">As Text</button></li>
+            <!-- <li><button class="dropdown-item" type="button" @click="onDownloadClick('html')">As HTML</button></li> -->
         </ul>
     </div>
 </template>
 
 <script lang="ts">
 import Vue, { defineComponent } from 'vue';
-import Button from './Button.vue';
 
 export default defineComponent({
     name: 'DownloadButton',
+    methods: {
+        onDownloadClick(filetype: string) {
+            this.$emit("download-clicked", filetype);
+        }
+    }
 });
 </script>Button

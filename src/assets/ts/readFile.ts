@@ -22,6 +22,22 @@ export function openMDFile() {
     return fileFetch as Promise<Array<string>>; // This returns a promise, so you need to use await to get the actual result
 }
 
+// Saves a text file as txt, md, or html
+export function saveFile(text:string, filename:string, type:string) {
+    let file = new Blob([text], {type: type});
+
+    let a = document.createElement("a");
+    let url = URL.createObjectURL(file);
+
+    a.href = url;
+    a.download = filename + "." + type;
+    document.body.appendChild(a);
+    a.click();
+    
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
+}
+
 // Converts the input to HTML.
 export function convertOutput(text:string) {
     const output = md.render(text);
