@@ -35,8 +35,8 @@ import Header from '@/components/Header.vue';
     },
     data() {
       return {
-        dT: '',
-        eT: '',
+        dT: '', // The text in the preview panel, formatted as HTML
+        eT: '', // The text in the editor panel, formatted as text/markdown
       }
     },
     methods: {
@@ -56,7 +56,11 @@ import Header from '@/components/Header.vue';
         },
         // Downloads what is currently in the edit panel as the file type passed into it
         downloadFile(filetype: string) {
-          saveFile(this.eT, "markdown", filetype);
+          if (filetype === "html") {
+            saveFile(this.dT, "markdown", filetype);
+          } else {
+            saveFile(this.eT, "markdown", filetype);
+          }
         },
         // Currently uncalled but I might still want this later. Loads a cheatsheet.md from the public dir
         async loadFile() {

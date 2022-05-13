@@ -6,7 +6,7 @@
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="download-dropdown">
             <li><button class="dropdown-item" type="button" @click="onDownloadClick('md')">As Markdown</button></li>
             <li><button class="dropdown-item" type="button" @click="onDownloadClick('txt')">As Text</button></li>
-            <!-- <li><button class="dropdown-item" type="button" @click="onDownloadClick('html')">As HTML</button></li> -->
+            <li><button class="dropdown-item" type="button" @click="onDownloadClick('html')">As HTML</button></li>
         </ul>
     </div>
 </template>
