@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import { openMDFile, convertOutput, saveFile } from './assets/ts/readFile';
+import { openMDFile, convertOutput, saveFile } from './readFile';
 
 import MDReader from '@/components/MDReader.vue';
 import MDEditor from '@/components/MDEditor.vue';
