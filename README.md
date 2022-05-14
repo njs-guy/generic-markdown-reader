@@ -5,10 +5,10 @@ A fast and lightweight Markdown reader made in Vue and Typescript.
 ## Current plans
 - [x] ~~Parse basic Markdown~~ 
 - [x] ~~Edit Markdown~~
-- [ ] Open text and Markdown files
-- [ ] Save files as txt, md, or html
+- [x] ~~Open text and Markdown files~~
+- [x] ~~Save files as txt, md, or html~~
 - [ ] Parse CommonMark + Task lists
-- [ ] Have a basic insert toolbar
+- [ ] Basic insert toolbar
 
 
 # Special Thanks
