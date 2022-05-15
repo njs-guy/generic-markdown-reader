@@ -6,7 +6,7 @@ const md  = require('markdown-it')({
     typographer: true,
     quotes: '“”‘’'
 });
-/* eslint-disable */
+/* eslint-enable */
 
 // Opens cheatsheet.md from the public dir
 export function openMDFile() {
@@ -41,7 +41,5 @@ export function saveFile(text:string, filename:string, type:string) {
 // Converts the input to HTML.
 export function convertOutput(text:string) {
     const output = md.render(text);
-
-    // Sanitize output. Likely with DOMpurify
     return output;
 }
