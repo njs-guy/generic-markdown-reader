@@ -98,6 +98,7 @@ import Header from '@/components/Header.vue';
           if(linkList.length > 0) {
             for(let link of linkList) {
               link.classList.add("link-primary");
+              link.setAttribute('target', '_blank');
             }
           }
         }, // End addClasses()
