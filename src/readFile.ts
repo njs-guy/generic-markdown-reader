@@ -24,10 +24,10 @@ export function openMDFile() {
 
 // Saves a text file as txt, md, or html
 export function saveFile(text:string, filename:string, type:string) {
-    let file = new Blob([text], {type: type});
+    const file = new Blob([text], {type: type});
 
-    let a = document.createElement("a");
-    let url = URL.createObjectURL(file);
+    const a = document.createElement("a");
+    const url = URL.createObjectURL(file);
 
     a.href = url;
     a.download = filename + "." + type;
